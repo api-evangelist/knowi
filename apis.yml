@@ -1,32 +1,60 @@
 aid: knowi
 name: Knowi
 description: >-
-  Knowi is an API analytics and business intelligence platform with native API connectivity and AI-powered analytics.
+  Knowi is an analytics and business intelligence platform with native
+  integration to NoSQL, SQL, and REST API data sources, providing AI-powered
+  analytics, embedded dashboards, and natural language querying.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - API Analysis
   - Business Intelligence
+  - API Analytics
+  - Data Visualization
+  - AI Analytics
+  - Embedded Analytics
+  - NoSQL Analytics
 url: >-
   https://raw.githubusercontent.com/api-evangelist/knowi/refs/heads/main/apis.yml
 created: '2026-03-26'
 modified: '2026-03-26'
 specificationVersion: '0.19'
 apis:
-  - aid: knowi:knowi
-    name: Knowi
+  - aid: knowi:knowi-api
+    name: Knowi API
     description: >-
-      Knowi is an API analytics and business intelligence platform with native API connectivity and AI-powered analytics.
+      The Knowi API enables programmatic access to dashboards, widgets, data
+      queries, and user management, allowing developers to embed analytics,
+      automate reporting, and integrate Knowi into applications.
     humanURL: https://www.knowi.com
-    tags:
-      - API Analysis
-      - Business Intelligence
     properties:
       - type: Documentation
         url: https://www.knowi.com/docs
+      - type: APIDocumentation
+        url: https://www.knowi.com/docs/api
+      - type: GettingStarted
+        url: https://www.knowi.com/docs/getting-started
+    tags:
+      - Business Intelligence
+      - API Analytics
+      - Embedded Analytics
+      - Data Visualization
 common:
   - type: Website
     url: https://www.knowi.com
+  - type: Documentation
+    url: https://www.knowi.com/docs
+  - type: Blog
+    url: https://www.knowi.com/blog
+  - type: Pricing
+    url: https://www.knowi.com/pricing
+  - type: Login
+    url: https://www.knowi.com/login
+  - type: Signup
+    url: https://www.knowi.com/signup
+  - type: Support
+    url: https://www.knowi.com/support
+  - type: Integrations
+    url: https://www.knowi.com/integrations
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
