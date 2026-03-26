@@ -1,0 +1,32 @@
+aid: knowi
+name: Knowi
+description: >-
+  Knowi is an API analytics and business intelligence platform with native API connectivity and AI-powered analytics.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - API Analysis
+  - Business Intelligence
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/knowi/refs/heads/main/apis.yml
+created: '2026-03-26'
+modified: '2026-03-26'
+specificationVersion: '0.19'
+apis:
+  - aid: knowi:knowi
+    name: Knowi
+    description: >-
+      Knowi is an API analytics and business intelligence platform with native API connectivity and AI-powered analytics.
+    humanURL: https://www.knowi.com
+    tags:
+      - API Analysis
+      - Business Intelligence
+    properties:
+      - type: Documentation
+        url: https://www.knowi.com/docs
+common:
+  - type: Website
+    url: https://www.knowi.com
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
