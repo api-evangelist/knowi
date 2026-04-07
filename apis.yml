@@ -7,10 +7,10 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Business Intelligence
-  - API Analytics
-  - Data Visualization
   - AI Analytics
+  - API Analytics
+  - Business Intelligence
+  - Data Visualization
   - Embedded Analytics
   - NoSQL Analytics
 url: >-
@@ -34,10 +34,10 @@ apis:
       - type: GettingStarted
         url: https://www.knowi.com/docs/getting-started
     tags:
-      - Business Intelligence
       - API Analytics
-      - Embedded Analytics
+      - Business Intelligence
       - Data Visualization
+      - Embedded Analytics
 common:
   - type: Website
     url: https://www.knowi.com
