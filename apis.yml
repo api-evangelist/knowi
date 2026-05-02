@@ -16,28 +16,48 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/knowi/refs/heads/main/apis.yml
 created: '2026-03-26'
-modified: '2026-03-26'
+modified: '2026-04-28'
 specificationVersion: '0.19'
 apis:
-  - aid: knowi:knowi-api
-    name: Knowi API
+  - aid: knowi:knowi-management-api
+    name: Knowi Management API
     description: >-
-      The Knowi API enables programmatic access to dashboards, widgets, data
-      queries, and user management, allowing developers to embed analytics,
-      automate reporting, and integrate Knowi into applications.
-    humanURL: https://www.knowi.com
+      The Knowi Management API enables programmatic administration of users,
+      groups, and dashboards in a Knowi workspace using OAuth 2.0 bearer
+      tokens. It supports automation of provisioning, permissions, and
+      embedded dashboard sharing.
+    humanURL: https://www.knowi.com/docs/managementAPI.html
     properties:
       - type: Documentation
-        url: https://www.knowi.com/docs
+        url: https://www.knowi.com/docs/managementAPI.html
       - type: APIDocumentation
-        url: https://www.knowi.com/docs/api
-      - type: GettingStarted
-        url: https://www.knowi.com/docs/getting-started
+        url: https://www.knowi.com/docs/managementAPI.html
+      - type: OpenAPI
+        url: openapi/knowi-management-api-openapi.yml
     tags:
-      - API Analytics
+      - Administration
       - Business Intelligence
-      - Data Visualization
+      - Dashboards
       - Embedded Analytics
+  - aid: knowi:knowi-push-data-api
+    name: Knowi Push Data API
+    description: >-
+      The Knowi Push Data API enables real-time data ingestion to and pull
+      retrieval from Knowi datasets. Push data over HTTP to create or update
+      datasets on the fly, and query results back with SQL-like filters and
+      multiple export formats.
+    humanURL: https://www.knowi.com/docs/pushApi.html
+    properties:
+      - type: Documentation
+        url: https://www.knowi.com/docs/pushApi.html
+      - type: APIDocumentation
+        url: https://www.knowi.com/docs/pushApi.html
+      - type: OpenAPI
+        url: openapi/knowi-push-data-api-openapi.yml
+    tags:
+      - Data Ingestion
+      - Real-Time
+      - Streaming
 common:
   - type: Website
     url: https://www.knowi.com
