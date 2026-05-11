@@ -75,6 +75,32 @@ common:
     url: https://www.knowi.com/support
   - type: Integrations
     url: https://www.knowi.com/integrations
+integrations:
+  - name: Logo
+  - name: Infosys
+  - name: Mongo
+  - name: Key Options
+  - name: Couchbase
+  - name: Datastax
+  - name: Nielsen
+  - name: Marklogic Logo Social
+  - name: Securely
+  - name: Feature Picto5.png
+  - name: Direct Access
+  - name: partner-verizon
+  - name: partner-ability-lab
+  - name: partner-converge-one
+  - name: partner-everbridge
+  - name: partner-lockheed-martin
+  - name: partner-macrofab
+  - name: partner-securitas
+  - name: partner-telstra
+  - name: partner-tinuiti
+  - name: partner-boku
+  - name: partner-scotiabank
+  - name: partner-njm
+  - name: Knowi
+  - name: websights
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
