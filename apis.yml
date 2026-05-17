@@ -69,7 +69,7 @@ common:
     url: https://www.knowi.com/pricing
   - type: Login
     url: https://www.knowi.com/login
-  - type: Signup
+  - type: SignUp
     url: https://www.knowi.com/signup
   - type: Support
     url: https://www.knowi.com/support
