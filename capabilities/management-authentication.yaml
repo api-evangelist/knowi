@@ -1,0 +1,102 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Knowi Management API — Authentication
+  description: 'Knowi Management API — Authentication. 2 operations. Lead operation: Obtain access token. Self-contained Naftiko
+    capability covering one Knowi business surface.'
+  tags:
+  - Knowi
+  - Authentication
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KNOWI_API_KEY: KNOWI_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: management-authentication
+    baseUri: https://knowi.com/api/1.0
+    description: Knowi Management API — Authentication business capability. Self-contained, no shared references.
+    resources:
+    - name: login
+      path: /login
+      operations:
+      - name: login
+        method: POST
+        description: Obtain access token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: logout
+      path: /logout
+      operations:
+      - name: logout
+        method: DELETE
+        description: Revoke access token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.KNOWI_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: management-authentication-rest
+    port: 8080
+    description: REST adapter for Knowi Management API — Authentication. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/login
+      name: login
+      description: REST surface for login.
+      operations:
+      - method: POST
+        name: login
+        description: Obtain access token
+        call: management-authentication.login
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/logout
+      name: logout
+      description: REST surface for logout.
+      operations:
+      - method: DELETE
+        name: logout
+        description: Revoke access token
+        call: management-authentication.logout
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: management-authentication-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Knowi Management API — Authentication. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: obtain-access-token
+      description: Obtain access token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: management-authentication.login
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: revoke-access-token
+      description: Revoke access token
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: management-authentication.logout
+      outputParameters:
+      - type: object
+        mapping: $.
