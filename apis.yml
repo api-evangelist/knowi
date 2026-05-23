@@ -70,6 +70,9 @@ common:
   url: https://www.knowi.com/docs
 - type: Blog
   url: https://www.knowi.com/blog
+- url: https://www.knowi.com/blog/feed/
+  type: BlogRSS
+  description: Discovered RSS/Atom feed for https://www.knowi.com/blog
 - type: Pricing
   url: https://www.knowi.com/pricing
 - type: Login
