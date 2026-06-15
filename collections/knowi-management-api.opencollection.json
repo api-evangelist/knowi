@@ -1,0 +1,429 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Knowi Management API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Obtain access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://knowi.com/api/1.0/login"
+          },
+          "docs": "Exchange credentials for a bearer token used to authorize Management API calls."
+        },
+        {
+          "info": {
+            "name": "Revoke access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://knowi.com/api/1.0/logout"
+          },
+          "docs": "Destroy the current bearer token, ending the session."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://knowi.com/api/1.0/users"
+          },
+          "docs": "List all users in the workspace."
+        },
+        {
+          "info": {
+            "name": "Create user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://knowi.com/api/1.0/users"
+          },
+          "docs": "Create a new workspace user."
+        },
+        {
+          "info": {
+            "name": "Search user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://knowi.com/api/1.0/users/search",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search for a user by username."
+        },
+        {
+          "info": {
+            "name": "Get user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://knowi.com/api/1.0/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific user by ID."
+        },
+        {
+          "info": {
+            "name": "Update user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://knowi.com/api/1.0/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update an existing user's information."
+        },
+        {
+          "info": {
+            "name": "Delete user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://knowi.com/api/1.0/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a user from the workspace."
+        },
+        {
+          "info": {
+            "name": "Move user assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://knowi.com/api/1.0/users/:userId/moveAssets",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Transfer ownership of a user's assets to another user."
+        },
+        {
+          "info": {
+            "name": "List shareable entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://knowi.com/api/1.0/users/shareableEntities"
+          },
+          "docs": "List users and groups available for sharing dashboards and widgets with."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://knowi.com/api/1.0/groups"
+          },
+          "docs": "List all groups in the workspace."
+        },
+        {
+          "info": {
+            "name": "Create group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://knowi.com/api/1.0/groups"
+          },
+          "docs": "Create a new group."
+        },
+        {
+          "info": {
+            "name": "Get group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://knowi.com/api/1.0/groups/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a group by ID."
+        },
+        {
+          "info": {
+            "name": "Update group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://knowi.com/api/1.0/groups/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a group."
+        },
+        {
+          "info": {
+            "name": "Delete group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://knowi.com/api/1.0/groups/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a group."
+        },
+        {
+          "info": {
+            "name": "List user groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://knowi.com/api/1.0/users/:userId/groups",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List groups associated with a specific user."
+        },
+        {
+          "info": {
+            "name": "Create group for user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://knowi.com/api/1.0/users/:userId/groups",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create a group associated with the specified user."
+        },
+        {
+          "info": {
+            "name": "Remove group from user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://knowi.com/api/1.0/users/:userId/groups/:groupId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove a group association from a user."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Dashboards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List dashboards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://knowi.com/api/1.0/dashboards"
+          },
+          "docs": "List all dashboards in the workspace."
+        },
+        {
+          "info": {
+            "name": "Get dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://knowi.com/api/1.0/dashboards/:objectId",
+            "params": [
+              {
+                "name": "objectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a dashboard by object ID."
+        },
+        {
+          "info": {
+            "name": "Get dashboard share info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://knowi.com/api/1.0/dashboards/:objectId/share",
+            "params": [
+              {
+                "name": "objectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve sharing information for a dashboard."
+        },
+        {
+          "info": {
+            "name": "Generate share URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://knowi.com/api/1.0/dashboards/:objectId/share/url",
+            "params": [
+              {
+                "name": "objectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Generate a public share URL for the dashboard."
+        },
+        {
+          "info": {
+            "name": "Generate secure share URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://knowi.com/api/1.0/dashboards/:objectId/share/url/secure",
+            "params": [
+              {
+                "name": "objectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Generate a secure share URL with token-based access for the dashboard."
+        },
+        {
+          "info": {
+            "name": "Generate secure share hash",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://knowi.com/api/1.0/dashboards/:objectId/share/url/secure/hash",
+            "params": [
+              {
+                "name": "objectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Generate a secure hash for embedding the dashboard with row-level filters."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

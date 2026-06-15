@@ -2,17 +2,17 @@
   "repo": "knowi",
   "feeds": [
     {
+      "source": "https://www.knowi.com/blog/feed/",
+      "error": "HTTPError"
+    },
+    {
       "source": "https://www.knowi.com/docs",
       "feed_url": "https://www.knowi.com/docs",
       "title": "",
       "saved": 0,
       "method": "none"
-    },
-    {
-      "source": "https://www.knowi.com/blog/feed/",
-      "error": "HTTPError"
     }
   ],
-  "fetched": "2026-06-01T23:35:02Z",
-  "post_count": 0
+  "post_count": 0,
+  "fetched": "2026-06-14T20:42:17Z"
 }
