@@ -70,13 +70,13 @@ common:
     url: https://www.knowi.com/pricing
   - type: Login
     url: https://www.knowi.com/login
-  - type: SignUp
+  - type: Signup
     url: https://www.knowi.com/signup
   - type: Support
     url: https://www.knowi.com/support
   - type: Integrations
     url: https://www.knowi.com/integrations
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://knowi.com/llms.txt
 integrations:
   - name: Logo
