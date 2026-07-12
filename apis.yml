@@ -55,6 +55,12 @@ apis:
       - Real-Time
       - Streaming
 common:
+  - type: TrustCenter
+    url: security/knowi-trust-center.yml
+  - type: DomainSecurity
+    url: security/knowi-domain-security.yml
+  - type: Authentication
+    url: authentication/knowi-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/cloud9-charts
   - type: Website
