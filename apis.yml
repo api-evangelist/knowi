@@ -55,6 +55,8 @@ apis:
       - Real-Time
       - Streaming
 common:
+  - type: AgenticAccess
+    url: agentic-access/knowi-agentic-access.yml
   - type: TrustCenter
     url: security/knowi-trust-center.yml
   - type: DomainSecurity
