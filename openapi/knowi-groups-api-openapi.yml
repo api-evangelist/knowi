@@ -1,0 +1,124 @@
+openapi: 3.0.3
+info:
+  title: Knowi Management Authentication Groups API
+  summary: Manage Knowi users, groups, and dashboards programmatically.
+  description: The Knowi Management API enables programmatic administration of a Knowi workspace including users, groups, and dashboards. It uses OAuth 2.0 bearer tokens for authentication and supports automation of provisioning, permission management, and embedded analytics workflows.
+  version: '1.0'
+  contact:
+    name: Knowi Support
+    url: https://www.knowi.com/support
+    email: support@knowi.com
+servers:
+- url: https://knowi.com/api/1.0
+  description: Knowi Management API production server
+security:
+- BearerAuth: []
+tags:
+- name: Groups
+  description: Manage user groups.
+paths:
+  /groups:
+    get:
+      tags:
+      - Groups
+      summary: List groups
+      description: List all groups in the workspace.
+      operationId: listGroups
+      responses:
+        '200':
+          description: A list of groups.
+    post:
+      tags:
+      - Groups
+      summary: Create group
+      description: Create a new group.
+      operationId: createGroup
+      responses:
+        '200':
+          description: Group created.
+  /groups/{groupId}:
+    parameters:
+    - name: groupId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Groups
+      summary: Get group
+      description: Retrieve a group by ID.
+      operationId: getGroup
+      responses:
+        '200':
+          description: Group details.
+    put:
+      tags:
+      - Groups
+      summary: Update group
+      description: Update a group.
+      operationId: updateGroup
+      responses:
+        '200':
+          description: Group updated.
+    delete:
+      tags:
+      - Groups
+      summary: Delete group
+      description: Delete a group.
+      operationId: deleteGroup
+      responses:
+        '200':
+          description: Group deleted.
+  /users/{userId}/groups:
+    parameters:
+    - name: userId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Groups
+      summary: List user groups
+      description: List groups associated with a specific user.
+      operationId: listUserGroups
+      responses:
+        '200':
+          description: A list of user groups.
+    post:
+      tags:
+      - Groups
+      summary: Create group for user
+      description: Create a group associated with the specified user.
+      operationId: createUserGroup
+      responses:
+        '200':
+          description: Group created for user.
+  /users/{userId}/groups/{groupId}:
+    delete:
+      tags:
+      - Groups
+      summary: Remove group from user
+      description: Remove a group association from a user.
+      operationId: removeUserGroup
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: groupId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Group association removed.
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

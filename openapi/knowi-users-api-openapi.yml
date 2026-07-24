@@ -1,0 +1,122 @@
+openapi: 3.0.3
+info:
+  title: Knowi Management Authentication Users API
+  summary: Manage Knowi users, groups, and dashboards programmatically.
+  description: The Knowi Management API enables programmatic administration of a Knowi workspace including users, groups, and dashboards. It uses OAuth 2.0 bearer tokens for authentication and supports automation of provisioning, permission management, and embedded analytics workflows.
+  version: '1.0'
+  contact:
+    name: Knowi Support
+    url: https://www.knowi.com/support
+    email: support@knowi.com
+servers:
+- url: https://knowi.com/api/1.0
+  description: Knowi Management API production server
+security:
+- BearerAuth: []
+tags:
+- name: Users
+  description: Manage workspace users.
+paths:
+  /users:
+    get:
+      tags:
+      - Users
+      summary: List users
+      description: List all users in the workspace.
+      operationId: listUsers
+      responses:
+        '200':
+          description: A list of users.
+    post:
+      tags:
+      - Users
+      summary: Create user
+      description: Create a new workspace user.
+      operationId: createUser
+      responses:
+        '200':
+          description: User created.
+        '409':
+          description: User already exists.
+  /users/search:
+    get:
+      tags:
+      - Users
+      summary: Search user
+      description: Search for a user by username.
+      operationId: searchUser
+      parameters:
+      - name: username
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Matching user.
+  /users/{userId}:
+    parameters:
+    - name: userId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Users
+      summary: Get user
+      description: Retrieve a specific user by ID.
+      operationId: getUser
+      responses:
+        '200':
+          description: User details.
+    put:
+      tags:
+      - Users
+      summary: Update user
+      description: Update an existing user's information.
+      operationId: updateUser
+      responses:
+        '200':
+          description: User updated.
+    delete:
+      tags:
+      - Users
+      summary: Delete user
+      description: Delete a user from the workspace.
+      operationId: deleteUser
+      responses:
+        '200':
+          description: User deleted.
+  /users/{userId}/moveAssets:
+    put:
+      tags:
+      - Users
+      summary: Move user assets
+      description: Transfer ownership of a user's assets to another user.
+      operationId: moveUserAssets
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Assets transferred.
+  /users/shareableEntities:
+    get:
+      tags:
+      - Users
+      summary: List shareable entities
+      description: List users and groups available for sharing dashboards and widgets with.
+      operationId: listShareableEntities
+      responses:
+        '200':
+          description: Shareable entities.
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

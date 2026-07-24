@@ -1,0 +1,49 @@
+openapi: 3.0.3
+info:
+  title: Knowi Management Authentication API
+  summary: Manage Knowi users, groups, and dashboards programmatically.
+  description: The Knowi Management API enables programmatic administration of a Knowi workspace including users, groups, and dashboards. It uses OAuth 2.0 bearer tokens for authentication and supports automation of provisioning, permission management, and embedded analytics workflows.
+  version: '1.0'
+  contact:
+    name: Knowi Support
+    url: https://www.knowi.com/support
+    email: support@knowi.com
+servers:
+- url: https://knowi.com/api/1.0
+  description: Knowi Management API production server
+security:
+- BearerAuth: []
+tags:
+- name: Authentication
+  description: Obtain and revoke bearer tokens.
+paths:
+  /login:
+    post:
+      tags:
+      - Authentication
+      summary: Obtain access token
+      description: Exchange credentials for a bearer token used to authorize Management API calls.
+      operationId: login
+      responses:
+        '200':
+          description: Authenticated, token returned.
+        '401':
+          description: Invalid credentials.
+  /logout:
+    delete:
+      tags:
+      - Authentication
+      summary: Revoke access token
+      description: Destroy the current bearer token, ending the session.
+      operationId: logout
+      responses:
+        '200':
+          description: Token revoked.
+        '401':
+          description: Token already invalid or expired.
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

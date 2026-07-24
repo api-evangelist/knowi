@@ -1,0 +1,77 @@
+openapi: 3.0.3
+info:
+  title: Knowi Management Authentication Pull API
+  summary: Manage Knowi users, groups, and dashboards programmatically.
+  description: The Knowi Management API enables programmatic administration of a Knowi workspace including users, groups, and dashboards. It uses OAuth 2.0 bearer tokens for authentication and supports automation of provisioning, permission management, and embedded analytics workflows.
+  version: '1.0'
+  contact:
+    name: Knowi Support
+    url: https://www.knowi.com/support
+    email: support@knowi.com
+servers:
+- url: https://knowi.com/api/1.0
+  description: Knowi Management API production server
+security:
+- BearerAuth: []
+tags:
+- name: Pull
+  description: Retrieve dataset contents.
+paths:
+  /api/data/{apiKey}:
+    get:
+      tags:
+      - Pull
+      summary: Pull dataset
+      description: Retrieve records from a Knowi dataset, optionally filtered and exported in a chosen format.
+      operationId: pullData
+      parameters:
+      - name: apiKey
+        in: path
+        required: true
+        schema:
+          type: string
+        description: API key associated with the target dataset.
+      - name: entityName
+        in: query
+        schema:
+          type: string
+        description: Dataset name.
+      - name: identifier
+        in: query
+        schema:
+          type: string
+        description: Dataset ID.
+      - name: exportFormat
+        in: query
+        schema:
+          type: string
+          enum:
+          - csv
+          - json
+        description: Output format for the response payload.
+      - name: c9SqlFilter
+        in: query
+        schema:
+          type: string
+        description: SQL WHERE clause used to filter the records returned.
+      - name: limit
+        in: query
+        schema:
+          type: integer
+        description: Maximum number of records to return.
+      - name: optimized
+        in: query
+        schema:
+          type: boolean
+        description: When true, returns an optimized response format.
+      responses:
+        '200':
+          description: Dataset records returned.
+        '401':
+          description: Invalid API key.
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

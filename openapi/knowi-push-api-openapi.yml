@@ -1,0 +1,76 @@
+openapi: 3.0.3
+info:
+  title: Knowi Management Authentication Push API
+  summary: Manage Knowi users, groups, and dashboards programmatically.
+  description: The Knowi Management API enables programmatic administration of a Knowi workspace including users, groups, and dashboards. It uses OAuth 2.0 bearer tokens for authentication and supports automation of provisioning, permission management, and embedded analytics workflows.
+  version: '1.0'
+  contact:
+    name: Knowi Support
+    url: https://www.knowi.com/support
+    email: support@knowi.com
+servers:
+- url: https://knowi.com/api/1.0
+  description: Knowi Management API production server
+security:
+- BearerAuth: []
+tags:
+- name: Push
+  description: Send data to Knowi datasets in real time.
+paths:
+  /live/{identifier}:
+    post:
+      tags:
+      - Push
+      summary: Push data to dataset
+      description: Send real-time data to a Knowi dataset. If the named entity does not exist, a new dataset is created. Optional override strategies allow replacing the entire dataset or replacing values keyed by specific fields.
+      operationId: pushData
+      parameters:
+      - name: identifier
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Dataset identifier (API key associated with the target dataset).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - entity
+              - data
+              properties:
+                entity:
+                  type: string
+                  description: Dataset name. Created automatically if it does not exist.
+                data:
+                  type: array
+                  description: Records to insert as objects of key-value pairs.
+                  items:
+                    type: object
+                override:
+                  type: object
+                  description: Override strategy controlling how incoming data is merged.
+                  properties:
+                    replaceAll:
+                      type: boolean
+                      description: Replace the entire dataset with the incoming data.
+                    replaceValuesForKey:
+                      type: array
+                      description: Replace records matching the listed key fields.
+                      items:
+                        type: string
+      responses:
+        '200':
+          description: Data accepted.
+        '400':
+          description: Invalid payload.
+        '401':
+          description: Invalid API key.
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,115 @@
+openapi: 3.0.3
+info:
+  title: Knowi Management Authentication Dashboards API
+  summary: Manage Knowi users, groups, and dashboards programmatically.
+  description: The Knowi Management API enables programmatic administration of a Knowi workspace including users, groups, and dashboards. It uses OAuth 2.0 bearer tokens for authentication and supports automation of provisioning, permission management, and embedded analytics workflows.
+  version: '1.0'
+  contact:
+    name: Knowi Support
+    url: https://www.knowi.com/support
+    email: support@knowi.com
+servers:
+- url: https://knowi.com/api/1.0
+  description: Knowi Management API production server
+security:
+- BearerAuth: []
+tags:
+- name: Dashboards
+  description: Manage dashboards and shared URLs.
+paths:
+  /dashboards:
+    get:
+      tags:
+      - Dashboards
+      summary: List dashboards
+      description: List all dashboards in the workspace.
+      operationId: listDashboards
+      responses:
+        '200':
+          description: A list of dashboards.
+  /dashboards/{objectId}:
+    get:
+      tags:
+      - Dashboards
+      summary: Get dashboard
+      description: Retrieve a dashboard by object ID.
+      operationId: getDashboard
+      parameters:
+      - name: objectId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Dashboard details.
+  /dashboards/{objectId}/share:
+    get:
+      tags:
+      - Dashboards
+      summary: Get dashboard share info
+      description: Retrieve sharing information for a dashboard.
+      operationId: getDashboardShare
+      parameters:
+      - name: objectId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Share information.
+  /dashboards/{objectId}/share/url:
+    post:
+      tags:
+      - Dashboards
+      summary: Generate share URL
+      description: Generate a public share URL for the dashboard.
+      operationId: generateShareUrl
+      parameters:
+      - name: objectId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Share URL generated.
+  /dashboards/{objectId}/share/url/secure:
+    post:
+      tags:
+      - Dashboards
+      summary: Generate secure share URL
+      description: Generate a secure share URL with token-based access for the dashboard.
+      operationId: generateSecureShareUrl
+      parameters:
+      - name: objectId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Secure share URL generated.
+  /dashboards/{objectId}/share/url/secure/hash:
+    post:
+      tags:
+      - Dashboards
+      summary: Generate secure share hash
+      description: Generate a secure hash for embedding the dashboard with row-level filters.
+      operationId: generateSecureShareHash
+      parameters:
+      - name: objectId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Secure hash generated.
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
