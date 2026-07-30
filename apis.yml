@@ -4,7 +4,20 @@ description: >-
   Knowi is an analytics and business intelligence platform with native integration to NoSQL, SQL, and REST API data
   sources, providing AI-powered analytics, embedded dashboards, and natural language querying.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/knowi.png
 tags:
   - AI Analytics
   - API Analytics
@@ -17,43 +30,108 @@ created: '2026-03-26'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: knowi:knowi-management-api
-    name: Knowi Management API
-    description: >-
-      The Knowi Management API enables programmatic administration of users, groups, and dashboards in a Knowi workspace
-      using OAuth 2.0 bearer tokens. It supports automation of provisioning, permissions, and embedded dashboard
-      sharing.
-    humanURL: https://www.knowi.com/docs/managementAPI.html
-    properties:
-      - type: Documentation
-        url: https://www.knowi.com/docs/managementAPI.html
-      - type: APIDocumentation
-        url: https://www.knowi.com/docs/managementAPI.html
-      - type: OpenAPI
-        url: openapi/knowi-management-api-openapi.yml
-    tags:
-      - Administration
-      - Business Intelligence
-      - Dashboards
-      - Embedded Analytics
-  - aid: knowi:knowi-push-data-api
-    name: Knowi Push Data API
-    description: >-
-      The Knowi Push Data API enables real-time data ingestion to and pull retrieval from Knowi datasets. Push data over
-      HTTP to create or update datasets on the fly, and query results back with SQL-like filters and multiple export
-      formats.
-    humanURL: https://www.knowi.com/docs/pushApi.html
-    properties:
-      - type: Documentation
-        url: https://www.knowi.com/docs/pushApi.html
-      - type: APIDocumentation
-        url: https://www.knowi.com/docs/pushApi.html
-      - type: OpenAPI
-        url: openapi/knowi-push-data-api-openapi.yml
-    tags:
-      - Data Ingestion
-      - Real-Time
-      - Streaming
+- aid: knowi:knowi-authentication-api
+  name: Knowi Authentication API
+  description: Obtain and revoke bearer tokens.
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://www.knowi.com/docs/managementAPI.html
+  - type: APIDocumentation
+    url: https://www.knowi.com/docs/managementAPI.html
+  - type: Documentation
+    url: https://www.knowi.com/docs/pushApi.html
+  - type: APIDocumentation
+    url: https://www.knowi.com/docs/pushApi.html
+- aid: knowi:knowi-dashboards-api
+  name: Knowi Dashboards API
+  description: Manage dashboards and shared URLs.
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - Dashboards
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-dashboards-api-openapi.yml
+  - type: Documentation
+    url: https://www.knowi.com/docs/managementAPI.html
+  - type: APIDocumentation
+    url: https://www.knowi.com/docs/managementAPI.html
+  - type: Documentation
+    url: https://www.knowi.com/docs/pushApi.html
+  - type: APIDocumentation
+    url: https://www.knowi.com/docs/pushApi.html
+- aid: knowi:knowi-groups-api
+  name: Knowi Groups API
+  description: Manage user groups.
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-groups-api-openapi.yml
+  - type: Documentation
+    url: https://www.knowi.com/docs/managementAPI.html
+  - type: APIDocumentation
+    url: https://www.knowi.com/docs/managementAPI.html
+  - type: Documentation
+    url: https://www.knowi.com/docs/pushApi.html
+  - type: APIDocumentation
+    url: https://www.knowi.com/docs/pushApi.html
+- aid: knowi:knowi-pull-api
+  name: Knowi Pull API
+  description: Retrieve dataset contents.
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - Pull
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-pull-api-openapi.yml
+  - type: Documentation
+    url: https://www.knowi.com/docs/managementAPI.html
+  - type: APIDocumentation
+    url: https://www.knowi.com/docs/managementAPI.html
+  - type: Documentation
+    url: https://www.knowi.com/docs/pushApi.html
+  - type: APIDocumentation
+    url: https://www.knowi.com/docs/pushApi.html
+- aid: knowi:knowi-push-api
+  name: Knowi Push API
+  description: Send data to Knowi datasets in real time.
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - Push
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-push-api-openapi.yml
+  - type: Documentation
+    url: https://www.knowi.com/docs/managementAPI.html
+  - type: APIDocumentation
+    url: https://www.knowi.com/docs/managementAPI.html
+  - type: Documentation
+    url: https://www.knowi.com/docs/pushApi.html
+  - type: APIDocumentation
+    url: https://www.knowi.com/docs/pushApi.html
+- aid: knowi:knowi-users-api
+  name: Knowi Users API
+  description: Manage workspace users.
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-users-api-openapi.yml
+  - type: Documentation
+    url: https://www.knowi.com/docs/managementAPI.html
+  - type: APIDocumentation
+    url: https://www.knowi.com/docs/managementAPI.html
+  - type: Documentation
+    url: https://www.knowi.com/docs/pushApi.html
+  - type: APIDocumentation
+    url: https://www.knowi.com/docs/pushApi.html
 common:
   - type: AgenticAccess
     url: agentic-access/knowi-agentic-access.yml
