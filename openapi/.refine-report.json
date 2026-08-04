@@ -1,0 +1,24 @@
+{
+  "provider": "knowi",
+  "sources": [
+    "knowi-authentication-api-openapi.yml",
+    "knowi-dashboards-api-openapi.yml",
+    "knowi-groups-api-openapi.yml",
+    "knowi-pull-api-openapi.yml",
+    "knowi-push-api-openapi.yml",
+    "knowi-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "knowi-authentication-api-openapi.yml",
+    "knowi-dashboards-api-openapi.yml",
+    "knowi-groups-api-openapi.yml",
+    "knowi-pull-api-openapi.yml",
+    "knowi-push-api-openapi.yml",
+    "knowi-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
