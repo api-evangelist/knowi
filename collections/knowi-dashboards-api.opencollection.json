@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Knowi Management Authentication Dashboards API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Dashboards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List dashboards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://knowi.com/api/1.0/dashboards"
+          },
+          "docs": "List all dashboards in the workspace."
+        },
+        {
+          "info": {
+            "name": "Get dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://knowi.com/api/1.0/dashboards/:objectId",
+            "params": [
+              {
+                "name": "objectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a dashboard by object ID."
+        },
+        {
+          "info": {
+            "name": "Get dashboard share info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://knowi.com/api/1.0/dashboards/:objectId/share",
+            "params": [
+              {
+                "name": "objectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve sharing information for a dashboard."
+        },
+        {
+          "info": {
+            "name": "Generate share URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://knowi.com/api/1.0/dashboards/:objectId/share/url",
+            "params": [
+              {
+                "name": "objectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Generate a public share URL for the dashboard."
+        },
+        {
+          "info": {
+            "name": "Generate secure share URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://knowi.com/api/1.0/dashboards/:objectId/share/url/secure",
+            "params": [
+              {
+                "name": "objectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Generate a secure share URL with token-based access for the dashboard."
+        },
+        {
+          "info": {
+            "name": "Generate secure share hash",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://knowi.com/api/1.0/dashboards/:objectId/share/url/secure/hash",
+            "params": [
+              {
+                "name": "objectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Generate a secure hash for embedding the dashboard with row-level filters."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,262 @@
+{
+  "item": [
+    {
+      "id": "3731ecb1-b210-44b7-82fc-6218ac337f30",
+      "name": "Push",
+      "description": {
+        "content": "Send data to Knowi datasets in real time.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e0ffbfbb-82a8-4f52-90aa-17959e71a878",
+          "name": "Push data to dataset",
+          "request": {
+            "name": "Push data to dataset",
+            "description": {
+              "content": "Send real-time data to a Knowi dataset. If the named entity does not exist, a new dataset is created. Optional override strategies allow replacing the entire dataset or replacing values keyed by specific fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "live",
+                ":identifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) Dataset identifier (API key associated with the target dataset)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"entity\": \"<string>\",\n  \"data\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"override\": {\n    \"replaceAll\": \"<boolean>\",\n    \"replaceValuesForKey\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "538db23a-4d51-4ee5-a8b7-f8dbd26d3853",
+              "name": "Data accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "live",
+                    ":identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) Dataset identifier (API key associated with the target dataset)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entity\": \"<string>\",\n  \"data\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"override\": {\n    \"replaceAll\": \"<boolean>\",\n    \"replaceValuesForKey\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d05f8346-e9bf-43bd-9c00-6d3ef0cc40ec",
+              "name": "Invalid payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "live",
+                    ":identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) Dataset identifier (API key associated with the target dataset)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entity\": \"<string>\",\n  \"data\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"override\": {\n    \"replaceAll\": \"<boolean>\",\n    \"replaceValuesForKey\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fa68136f-deff-4891-a06e-095b866d7918",
+              "name": "Invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "live",
+                    ":identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) Dataset identifier (API key associated with the target dataset)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entity\": \"<string>\",\n  \"data\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"override\": {\n    \"replaceAll\": \"<boolean>\",\n    \"replaceValuesForKey\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://knowi.com/api/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8d3e92e6-b8d9-4be2-b93a-0c37fc930ef4",
+    "name": "Knowi Management Authentication Push API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Knowi Management API enables programmatic administration of a Knowi workspace including users, groups, and dashboards. It uses OAuth 2.0 bearer tokens for authentication and supports automation of provisioning, permission management, and embedded analytics workflows.\n\nContact Support:\n Name: Knowi Support\n Email: support@knowi.com",
+      "type": "text/plain"
+    }
+  }
+}

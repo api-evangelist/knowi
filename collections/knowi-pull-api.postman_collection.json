@@ -1,0 +1,265 @@
+{
+  "item": [
+    {
+      "id": "69f2ef61-838c-408f-9b75-cc707c50ceaa",
+      "name": "Pull",
+      "description": {
+        "content": "Retrieve dataset contents.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d26266f5-b8a1-4fd7-8eb4-42899530b1b8",
+          "name": "Pull dataset",
+          "request": {
+            "name": "Pull dataset",
+            "description": {
+              "content": "Retrieve records from a Knowi dataset, optionally filtered and exported in a chosen format.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "data",
+                ":apiKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "entityName",
+                  "value": "<string>",
+                  "description": "Dataset name."
+                },
+                {
+                  "disabled": false,
+                  "key": "identifier",
+                  "value": "<string>",
+                  "description": "Dataset ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "exportFormat",
+                  "value": "<string>",
+                  "description": "Output format for the response payload."
+                },
+                {
+                  "disabled": false,
+                  "key": "c9SqlFilter",
+                  "value": "<string>",
+                  "description": "SQL WHERE clause used to filter the records returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "optimized",
+                  "value": "<boolean>",
+                  "description": "When true, returns an optimized response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) API key associated with the target dataset."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d2f3298-a129-4b5b-abe3-fabecae3df8a",
+              "name": "Dataset records returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "data",
+                    ":apiKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entityName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exportFormat",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c9SqlFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "optimized",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) API key associated with the target dataset."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6efd89c1-8efd-451b-9dea-5f635e6019f2",
+              "name": "Invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "data",
+                    ":apiKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entityName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exportFormat",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "c9SqlFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "optimized",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) API key associated with the target dataset."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://knowi.com/api/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ac4c5ba1-296c-4c80-a6c0-58c6c77b4669",
+    "name": "Knowi Management Authentication Pull API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Knowi Management API enables programmatic administration of a Knowi workspace including users, groups, and dashboards. It uses OAuth 2.0 bearer tokens for authentication and supports automation of provisioning, permission management, and embedded analytics workflows.\n\nContact Support:\n Name: Knowi Support\n Email: support@knowi.com",
+      "type": "text/plain"
+    }
+  }
+}

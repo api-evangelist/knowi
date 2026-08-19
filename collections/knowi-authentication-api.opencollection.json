@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Knowi Management Authentication API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Obtain access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://knowi.com/api/1.0/login"
+          },
+          "docs": "Exchange credentials for a bearer token used to authorize Management API calls."
+        },
+        {
+          "info": {
+            "name": "Revoke access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://knowi.com/api/1.0/logout"
+          },
+          "docs": "Destroy the current bearer token, ending the session."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

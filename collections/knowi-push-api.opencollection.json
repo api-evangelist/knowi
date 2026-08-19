@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Knowi Management Authentication Push API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Push",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Push data to dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://knowi.com/api/1.0/live/:identifier",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path",
+                "description": "Dataset identifier (API key associated with the target dataset)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send real-time data to a Knowi dataset. If the named entity does not exist, a new dataset is created. Optional override strategies allow replacing the entire dataset or replacing values keyed by specific fields."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
