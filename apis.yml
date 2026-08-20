@@ -69,6 +69,8 @@ apis:
   description: Manage user groups.
   humanURL: https://www.knowi.com/docs/managementAPI.html
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
@@ -120,6 +122,8 @@ apis:
   description: Manage workspace users.
   humanURL: https://www.knowi.com/docs/managementAPI.html
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
