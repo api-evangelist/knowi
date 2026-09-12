@@ -2,19 +2,19 @@
   "repo": "knowi",
   "feeds": [
     {
+      "source": "https://www.knowi.com/blog/feed/",
+      "error": "HTTPError"
+    },
+    {
       "source": "https://www.knowi.com/docs",
       "feed_url": "https://www.knowi.com/docs",
       "title": "",
       "saved": 0,
       "method": "none"
-    },
-    {
-      "source": "https://www.knowi.com/blog/feed/",
-      "error": "HTTPError"
     }
   ],
   "post_count": 2,
-  "fetched": "2026-08-30T22:33:40Z",
+  "fetched": "2026-09-06T19:17:18Z",
   "agent_pulled": "2026-06-27",
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
