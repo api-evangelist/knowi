@@ -1,0 +1,36 @@
+# Front Door AI Index — knowi — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: knowi
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.knowi.com
+  final_host: www.knowi.com
+  ownership: own
+  owner: knowi
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 67
+  host_score: 67
+  density: 8.57
+  words: 7820
+  tiers:
+    agentic: 28
+    core: 33
+    model: 6
+  ambiguous: 24
+  top_terms:
+    AI: 30
+    agent: 19
+    agentic: 10
+    AI agent: 9
+    Claude: 6
+    intelligence: 5
+    MCP: 4
+    LLMs: 2
+    inference: 2
+    vector database: 2
+    embedding: 1
+    machine learning: 1

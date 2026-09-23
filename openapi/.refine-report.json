@@ -1,24 +1,32 @@
 {
   "provider": "knowi",
   "sources": [
-    "knowi-authentication-api-openapi.yml",
-    "knowi-dashboards-api-openapi.yml",
-    "knowi-groups-api-openapi.yml",
-    "knowi-pull-api-openapi.yml",
-    "knowi-push-api-openapi.yml",
-    "knowi-users-api-openapi.yml"
+    "_original/knowi-management-api-openapi.yml",
+    "_original/knowi-push-data-api-openapi.yml"
   ],
   "outputs": [
     "knowi-authentication-api-openapi.yml",
     "knowi-dashboards-api-openapi.yml",
     "knowi-groups-api-openapi.yml",
+    "knowi-users-api-openapi.yml",
     "knowi-pull-api-openapi.yml",
-    "knowi-push-api-openapi.yml",
-    "knowi-users-api-openapi.yml"
+    "knowi-push-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "knowi-management-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "knowi-push-data-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "knowi-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "knowi-dashboards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "knowi-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "knowi-pull-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "knowi-push-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "knowi-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
