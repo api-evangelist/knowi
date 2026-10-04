@@ -1,0 +1,25 @@
+slug: knowi
+provider: Knowi
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Dashboards
+  spec_file: knowi-dashboards-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.82
+  evidence: GET /dashboards 'List dashboards'; POST /dashboards/{objectId}/share/url/secure 'Generate
+    secure share URL'; vendor 'analytics and business intelligence platform ... embedded dashboards'
+  reason: Managing and sharing BI dashboards is the delivery of reporting and business intelligence, mapping
+    cleanly to Analytics & BI Management.

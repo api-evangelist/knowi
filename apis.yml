@@ -150,6 +150,9 @@ apis:
   - type: APIDocumentation
     url: https://www.knowi.com/docs/pushApi.html
 common:
+  - type: CapabilityMap
+    url: capabilities/knowi-capability-edges.yml
+    name: Knowi Business Capability Map
   - type: AgenticAccess
     url: agentic-access/knowi-agentic-access.yml
   - type: TrustCenter
