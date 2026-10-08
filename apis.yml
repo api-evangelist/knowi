@@ -150,6 +150,12 @@ apis:
   - type: APIDocumentation
     url: https://www.knowi.com/docs/pushApi.html
 common:
+  - type: Plans
+    url: plans/knowi-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/knowi-rate-limits.yml
+  - type: FinOps
+    url: finops/knowi-finops.yml
   - type: CapabilityMap
     url: capabilities/knowi-capability-edges.yml
     name: Knowi Business Capability Map
