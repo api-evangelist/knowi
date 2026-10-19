@@ -2,6 +2,7 @@
   "provider": "knowi",
   "sources": [
     "_original/knowi-management-api-openapi.yml",
+    "_original/knowi-openapi.json",
     "_original/knowi-push-data-api-openapi.yml"
   ],
   "outputs": [
@@ -9,6 +10,18 @@
     "knowi-dashboards-api-openapi.yml",
     "knowi-groups-api-openapi.yml",
     "knowi-users-api-openapi.yml",
+    "knowi-action-management-api-api-openapi.yml",
+    "knowi-alerts-api-openapi.yml",
+    "knowi-authentication-management-api-api-openapi.yml",
+    "knowi-category-management-api-api-openapi.yml",
+    "knowi-datasource-management-api-api-openapi.yml",
+    "knowi-datasources-api-openapi.yml",
+    "knowi-group-management-api-api-openapi.yml",
+    "knowi-kpi-management-api-api-openapi.yml",
+    "knowi-natural-language-processing-management-api-api-openapi.yml",
+    "knowi-report-management-api-api-openapi.yml",
+    "knowi-role-management-api-api-openapi.yml",
+    "knowi-user-management-api-api-openapi.yml",
     "knowi-pull-api-openapi.yml",
     "knowi-push-api-openapi.yml"
   ],
@@ -16,10 +29,27 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "knowi-management-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "knowi-openapi.json: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "knowi-openapi.json: tagged paths GET /api/2.0/alerts/{objectId}/shares -> Alerts",
+    "knowi-openapi.json: tagged paths PUT /api/2.0/alerts/{objectId}/shares -> Alerts",
+    "knowi-openapi.json: tagged paths POST /api/2.0/alerts/{objectId}/shares -> Alerts",
+    "knowi-openapi.json: tagged paths DELETE /api/2.0/alerts/{objectId}/shares -> Alerts",
+    "knowi-openapi.json: tagged paths GET /api/2.0/alerts -> Alerts",
+    "knowi-openapi.json: tagged paths POST /api/2.0/alerts -> Alerts",
+    "knowi-openapi.json: tagged paths GET /api/2.0/alerts/{objectId} -> Alerts",
+    "knowi-openapi.json: tagged paths PUT /api/2.0/alerts/{objectId} -> Alerts",
+    "knowi-openapi.json: tagged paths DELETE /api/2.0/alerts/{objectId} -> Alerts",
+    "knowi-openapi.json: tagged paths POST /api/2.0/alerts/pause -> Alerts",
+    "knowi-openapi.json: tagged paths POST /api/2.0/alerts/preview -> Alerts",
+    "knowi-openapi.json: tagged paths POST /api/2.0/alerts/run -> Alerts",
+    "knowi-openapi.json: tagged paths POST /api/2.0/alerts/unpause -> Alerts",
+    "knowi-openapi.json: tagged paths POST /api/2.0/datasources -> Datasources",
+    "knowi-openapi.json: declared missing tag: Alerts",
+    "knowi-openapi.json: declared missing tag: Datasources",
     "knowi-push-data-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "apis.yml register: written (+12 apis, 18 total)"
   ],
   "skipped": [
     "knowi-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",

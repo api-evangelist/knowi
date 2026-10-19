@@ -1,0 +1,1112 @@
+openapi: 3.2.0
+info:
+  title: User Management Group Management API
+  description: Manage users
+  version: '2.0'
+tags:
+- name: Group Management API
+  description: Manage user group
+paths:
+  /api/2.0/groups:
+    get:
+      tags:
+      - Group Management API
+      summary: List accessible groups
+      operationId: listGroups
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserGroup'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - Group Management API
+      summary: Create new group
+      operationId: createGroup
+      requestBody:
+        description: Group information to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserGroup'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserGroup'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/groups/{objectId}:
+    get:
+      tags:
+      - Group Management API
+      summary: Retrieve a group with specific ID
+      operationId: viewGroup
+      parameters:
+      - name: objectId
+        in: path
+        description: Group ID to be retrieved
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserGroup'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+    put:
+      tags:
+      - Group Management API
+      summary: Update existing group with input information.
+      operationId: editGroup
+      parameters:
+      - name: objectId
+        in: path
+        description: Group ID to be updated
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Group information to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserGroup'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserGroup'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+    delete:
+      tags:
+      - Group Management API
+      summary: Delete existing group with given ID
+      operationId: deleteGroup
+      parameters:
+      - name: objectId
+        in: path
+        description: Group ID to be deleted
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/groups/{objectId}/assets:
+    get:
+      tags:
+      - Group Management API
+      summary: Retrieve list of assets shared to a group with specific ID
+      operationId: listGroupAssets
+      parameters:
+      - name: objectId
+        in: path
+        description: Group ID to retrieve list of shared assets
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GroupAsset'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/groups/{objectId}/autoShares:
+    get:
+      tags:
+      - Group Management API
+      summary: Retrieve list of users with assets automatically shared to a group with…
+      operationId: listGroupAutoShares
+      parameters:
+      - name: objectId
+        in: path
+        description: Group ID to retrieve list of users
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/groups/{objectId}/users:
+    get:
+      tags:
+      - Group Management API
+      summary: Retrieve list of users in a group with specific group ID
+      operationId: listGroupUsers
+      parameters:
+      - name: objectId
+        in: path
+        description: Group ID to retrieve list of users
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    Dashboard:
+      type: object
+      properties:
+        createdDate:
+          type: string
+          format: date-time
+        lastModDate:
+          type: integer
+          description: Last modified date
+          format: int64
+          readOnly: true
+        id:
+          type: integer
+          format: int64
+        oid:
+          type: integer
+          format: int64
+        name:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        url:
+          type: string
+        secureUrl:
+          type: string
+        urlShareWhitelistDomain:
+          type: string
+        displayOrder:
+          type: integer
+          format: int32
+        screenAdjust:
+          type: boolean
+        screenWidth:
+          type: integer
+          format: int32
+        screenHeight:
+          type: integer
+          format: int32
+        lastModDt:
+          type: string
+          format: date-time
+        lastAccessDt:
+          type: string
+          format: date-time
+        locked:
+          type: boolean
+        accessLevel:
+          type: integer
+          format: int32
+        categoryAccessLevel:
+          type: integer
+          format: int32
+        autoShared:
+          type: boolean
+        filterSettings:
+          type: string
+        favorite:
+          type: boolean
+        urlSharePassword:
+          type: string
+        incognitoId:
+          type: integer
+          format: int64
+        type:
+          type: integer
+          format: int32
+        username:
+          type: string
+        defaultFilterSets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FilterSet'
+        categories:
+          type: array
+          items:
+            type: integer
+            format: int64
+        notDefaultFilter:
+          type: boolean
+        properties:
+          $ref: '#/components/schemas/DashboardProps'
+        my:
+          type: boolean
+        orderedPositions:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/ChartPosition'
+        showWidgetList:
+          type: boolean
+        dashboardGroupingOriginId:
+          type: object
+        dashNameAsValidFilename:
+          type: string
+        dashboardGroupingViewOnly:
+          type: boolean
+        propertiesInternally:
+          $ref: '#/components/schemas/DashboardProps'
+    DashboardProps:
+      type: object
+      properties:
+        createdDate:
+          type: integer
+          description: Created date in milliseconds
+          format: int64
+          readOnly: true
+        lastModDate:
+          type: integer
+          description: Last modified date
+          format: int64
+          readOnly: true
+        theme:
+          type: string
+        description:
+          type: string
+        header:
+          type: string
+        footer:
+          type: string
+        customCssJs:
+          type: string
+        excludeGridWidgetsFromPdfExport:
+          type: boolean
+        excludeExpandedGridFromPdfExport:
+          type: boolean
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+        pdfViewportWidth:
+          type: integer
+          format: int32
+        pdfViewportHeight:
+          type: integer
+          format: int32
+        pdfExportSettings:
+          type: object
+          additionalProperties:
+            type: object
+        defaultFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+        filterSets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FilterSet'
+        defaultFilterSets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FilterSet'
+        view:
+          type: object
+          additionalProperties:
+            type: object
+        dashboardGroupingList:
+          type: array
+          items:
+            type: integer
+            format: int64
+        dashboardGroupingMap:
+          type: array
+          items:
+            type: array
+            items:
+              type: object
+    Filter:
+      required:
+      - fieldName
+      - fieldNames
+      type: object
+      properties:
+        fieldName:
+          type: string
+          description: Filter field name. Either fieldName or fieldNames has to be not empty
+        fieldNames:
+          type: array
+          description: Filter field names in case of tree filter. Either fieldName or fieldNames has to be not empty
+          items:
+            type: string
+            description: Filter field names in case of tree filter. Either fieldName or fieldNames has to be not empty
+        values:
+          type: array
+          description: Filter values
+          items:
+            type: object
+            description: Filter values
+        operator:
+          type: string
+          description: Filter operator
+          example: =,!=,>,>=,<,<=,Equals,Not Equals,Greater than,Greater than or equals,Less than,Less than or equals,is null,is not null,Range,Contains,Does Not Contain
+        locked:
+          type: boolean
+          description: 'Whether or not filter is locked (ie: not modifiable)'
+        requireValue:
+          type: boolean
+          description: Whether or not filter requires value to be set
+        enabled:
+          type: boolean
+          description: Whether or not filter is enabled (default is true)
+        controlType:
+          type: string
+          description: Filter control type
+          example: single,picker,slider,range_time_slider
+        visible:
+          type: boolean
+          description: Whether or not filter is visible (default is true)
+        hitList:
+          type: integer
+          description: Suggestion values dataset ID
+          format: int64
+        hitListLabel:
+          type: string
+          description: Suggestion label field name of the hit list dataset
+        hitListValue:
+          type: string
+          description: Suggestion value field name of the hit list dataset
+        filteringResult:
+          type: boolean
+          description: Whether the filter should be applied before (false) or after (true) the widget data has been processed
+        label:
+          type: string
+          description: Display label for the filter
+        or:
+          type: boolean
+          description: Whether this filter is OR'd with the previous filter (for SQL parsing)
+        description:
+          type: string
+          description: Filter description
+        dateLimit:
+          type: string
+          description: Filter date limit
+        dateLimitOptions:
+          type: string
+          description: Filter date limit options (restriction and from token)
+        displayValues:
+          type: array
+          description: Custom display values
+          items:
+            type: object
+            description: Custom display values
+        plainControlType:
+          type: string
+          description: Control type for plain text field type
+          example: single,multiple,tree,custom
+        dynamic:
+          type: boolean
+          description: Whether or not filter's value is automatically selected
+        inclusiveTime:
+          type: boolean
+          description: 'Whether time range filter is inclusive (includes exact start/end times, where start time is for Start Date and end time for End Date. UI tooltip: When checked, creates a single continuous time period from Start Date/Time to End Date/Time. When unchecked, applies the time range to each day separately (e.g., 9:00-17:00 every day within the date range).)'
+        groupHeading:
+          type: boolean
+          description: Whether this entry is a display-only group heading (fieldName contains the heading text)
+        divider:
+          type: boolean
+          description: Whether this entry is a display-only divider between filter groups
+      description: Filter information
+    GroupAsset:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Asset name
+          readOnly: true
+        accessLevel:
+          type: integer
+          description: Asset access level
+          format: int32
+          readOnly: true
+        objectId:
+          type: integer
+          description: Asset ID
+          format: int64
+          readOnly: true
+        objectType:
+          type: integer
+          description: Asset type
+          format: int32
+          readOnly: true
+      description: Shared asset information
+    UserGroup:
+      required:
+      - groupName
+      type: object
+      properties:
+        createdDate:
+          type: integer
+          description: Created date in milliseconds
+          format: int64
+          readOnly: true
+        lastModDate:
+          type: integer
+          description: Last modified date
+          format: int64
+          readOnly: true
+        id:
+          type: integer
+          description: Group ID
+          format: int64
+          readOnly: true
+        groupName:
+          type: string
+          description: Group name
+        userName:
+          type: string
+          description: Group owner's username
+          readOnly: true
+        userId:
+          type: integer
+          description: Group owner's user ID
+          format: int64
+          readOnly: true
+        limitSharing:
+          type: boolean
+          description: If true, this user can only share assets with members of this group
+        accessLevel:
+          type: integer
+          description: User's access level for this group (0=Admin, 1=Edit, 2=View)
+          format: int32
+        contentFilters:
+          type: array
+          description: Group content filters
+          items:
+            $ref: '#/components/schemas/Filter'
+      description: User group information
+      readOnly: true
+    User:
+      type: object
+      properties:
+        createdDate:
+          type: integer
+          description: Created date in milliseconds
+          format: int64
+          readOnly: true
+        lastModDate:
+          type: integer
+          description: Last modified date
+          format: int64
+          readOnly: true
+        id:
+          type: integer
+          description: User ID
+          format: int64
+          readOnly: true
+        username:
+          type: string
+          description: User username
+        name:
+          type: string
+          description: User name
+        ssoUser:
+          type: boolean
+          description: Is SSO user
+        customerId:
+          type: integer
+          description: User customer ID
+          format: int64
+          readOnly: true
+        autocycle:
+          type: boolean
+          description: Is user eligible for auto-cycle
+          readOnly: true
+        timeZone:
+          type: string
+          description: User timezone
+        lastLoginDate:
+          type: string
+          description: User last login date time
+          format: date-time
+          readOnly: true
+        managementClientId:
+          type: string
+          description: Management API client ID
+          readOnly: true
+        managementClientSecret:
+          type: string
+          description: Management API client secret
+          readOnly: true
+        externalAuthType:
+          type: integer
+          description: External authentication type
+          format: int32
+          readOnly: true
+        userGroups:
+          uniqueItems: true
+          type: array
+          description: Groups
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/UserGroup'
+        userProperties:
+          $ref: '#/components/schemas/UserProperties'
+        roles:
+          uniqueItems: true
+          type: array
+          description: User roles
+          items:
+            type: string
+            description: User roles
+        permissions:
+          uniqueItems: true
+          type: array
+          description: User permissions
+          readOnly: true
+          items:
+            type: string
+            description: User permissions
+            readOnly: true
+        jsonConfig:
+          type: string
+          description: Role JSON config (viz settings, etc.)
+          readOnly: true
+        twoFactorBySms:
+          type: boolean
+          description: Is two factor login by SMS enabled
+        phone:
+          type: string
+          description: User phone number
+        twoFactorByEmail:
+          type: boolean
+          description: Is two factor login by EMAIL enabled
+        email:
+          type: string
+          description: User email
+        selectedDashInternal:
+          $ref: '#/components/schemas/Dashboard'
+      description: User information
+    ApiMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message
+          readOnly: true
+        documentation:
+          type: string
+          description: Link to documentation
+          readOnly: true
+      description: Response status
+    FilterSet:
+      type: object
+      properties:
+        createdDate:
+          type: integer
+          description: Created date in milliseconds
+          format: int64
+          readOnly: true
+        lastModDate:
+          type: integer
+          description: Last modified date
+          format: int64
+          readOnly: true
+        id:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        accessLevel:
+          type: integer
+          format: int32
+        userSpecific:
+          type: boolean
+        enabled:
+          type: boolean
+        color:
+          type: string
+        defaultFilters:
+          type: boolean
+        locked:
+          type: boolean
+        visible:
+          type: boolean
+        syncFilters:
+          type: boolean
+        expanded:
+          type: boolean
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+        transientFilter:
+          type: boolean
+    UserProperties:
+      type: object
+      properties:
+        adminUserLimit:
+          type: integer
+          format: int32
+        dashboardSharing:
+          type: boolean
+        elasticStoreLimit:
+          type: integer
+          format: int32
+        machineLearningAccess:
+          type: boolean
+        managementAPI:
+          type: boolean
+        urlSharePasswordProtect:
+          type: boolean
+        customerSsoGenerateUI:
+          type: boolean
+        customerJwtUI:
+          type: boolean
+        ssoUserLimit:
+          type: integer
+          format: int32
+        triggerNotificationAccess:
+          type: boolean
+        insightEnabled:
+          type: boolean
+        insightIconDefaultEnabled:
+          type: boolean
+        searchBarMode:
+          type: string
+        nlpEnabled:
+          type: boolean
+        botNlpEnabled:
+          type: boolean
+        unstructuredDataNlpEnabled:
+          type: boolean
+        allowCustomerUseNlp:
+          type: boolean
+        allowCustomerUseBotNlp:
+          type: boolean
+        nlpIndexByDefault:
+          type: boolean
+        ldap:
+          type: boolean
+        saml:
+          type: boolean
+        userLimit:
+          type: integer
+          format: int32
+        widgetCountLimit:
+          type: integer
+          format: int32
+        viewerUserLimit:
+          type: integer
+          format: int32
+        nlpVisualizationFirstEnabled:
+          type: boolean
+        appsEnabled:
+          type: boolean
+        supportAccessConsent:
+          type: boolean
+        phiCustomer:
+          type: boolean
+        appsLimit:
+          type: integer
+          format: int32
+        forceTwoFactorAuthEnabled:
+          type: string
+        forceTwoFactorAuthSuper:
+          type: boolean
+        newDashNavEnabled:
+          type: boolean
+        font:
+          type: string
+        selectedDashboardId:
+          type: integer
+          format: int64
+        defaultDashboardId:
+          type: integer
+          format: int64
+        sendTimezoneWithQuery:
+          type: boolean
+        directPush:
+          type: boolean
+        writeBack:
+          type: boolean
+        userContentFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+        customerContentFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+        groupContentFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+        sharedContentFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+        contentFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+        schemaSample:
+          type: integer
+          format: int32
+        schemaNestedSample:
+          type: integer
+          format: int32
+        maxChunkSize:
+          type: integer
+          format: int32
+        maxChunkCount:
+          type: integer
+          format: int32
+        maxQueryTime:
+          type: integer
+          format: int32
+        locale:
+          type: string
+        defaultTimeZone:
+          type: string
+        customUserColors:
+          type: string
+        customFieldColors:
+          type: string
+        customerLogo:
+          type: string
+        customerThemes:
+          type: string
+        activeThemeId:
+          type: string
+        dateFormat:
+          type: string
+        defaultDateFormat:
+          type: string
+        customMailServer:
+          type: string
+        defaultCategoryPermission:
+          type: integer
+          format: int32
+        subAccountAccess:
+          type: boolean
+        systemAdmin:
+          type: boolean
+        logoutUrl:
+          type: string
+        supportEmail:
+          type: string
+        operationalAlertsEnabled:
+          type: string
+        operationalAlertsRecipients:
+          type: string
+        operationalAlertsLastDigest:
+          type: string
+        operationalAlertsLastRun:
+          type: string
+        pdfEngine:
+          type: string
+        tunnelPrivateKey:
+          type: string
+        tunnelPublicKey:
+          type: string
+        tunnelKeyPassphrase:
+          type: string
+        limitListingUsersToGroups:
+          type: boolean
+        aiAssistantEnabled:
+          type: boolean
+        aiAgentsEnabled:
+          type: boolean
+        aiAgentsUiToggle:
+          type: boolean
+        agenticBIUseDocs:
+          type: string
+        agenticBIUseDatasets:
+          type: string
+        agenticBIUseWidgets:
+          type: string
+        agenticBIUseDashboards:
+          type: string
+        agenticBIUseReports:
+          type: string
+        agenticBIUseAlerts:
+          type: string
+        agenticBIModel:
+          type: string
+        agenticBISelectedDatasets:
+          type: string
+        agenticBISelectedDocs:
+          type: string
+        onboardingChecklistState:
+          type: string
+        aiProviderSettings:
+          type: object
+          additionalProperties:
+            type: string
+        jwtAlgorithm:
+          type: string
+        customSupportEmail:
+          type: string
+        totalUserLimit:
+          type: integer
+          format: int32
+        oem:
+          type: boolean
+        hasOpenAIKey:
+          type: boolean
+        hasAnthropicKey:
+          type: boolean
+        hasGeminiKey:
+          type: boolean
+        hasAzureAIKey:
+          type: boolean
+      description: User properties
+      readOnly: true
+    ChartPosition:
+      type: object
+      properties:
+        chartId:
+          type: integer
+          format: int64
+        width:
+          type: integer
+          format: int32
+        height:
+          type: integer
+          format: int32
+        originalScreenWidth:
+          type: integer
+          format: int32
+        originalScreenHeight:
+          type: integer
+          format: int32
+        col:
+          type: integer
+          format: int32
+        row:
+          type: integer
+          format: int32
+        xpos:
+          type: integer
+          format: int32
+        ypos:
+          type: integer
+          format: int32
+        id:
+          type: integer
+          format: int64
+        size_x:
+          type: integer
+          format: int32
+        size_y:
+          type: integer
+          format: int32
+        size_y_original:
+          type: integer
+          format: int32
+        grain:
+          type: integer
+          format: int32
+  securitySchemes:
+    Authorization:
+      type: http
+      in: header
+      scheme: bearer

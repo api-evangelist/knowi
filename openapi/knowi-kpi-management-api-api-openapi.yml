@@ -1,0 +1,406 @@
+openapi: 3.2.0
+info:
+  title: User Management KPI Management API
+  description: Manage users
+  version: '2.0'
+tags:
+- name: KPI Management API
+  description: Manage KPI
+paths:
+  /api/2.0/kpi:
+    get:
+      tags:
+      - KPI Management API
+      summary: Check all KPIs
+      operationId: checkAll
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KPIAll'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/kpi/checkDashboardLoad:
+    get:
+      tags:
+      - KPI Management API
+      summary: Check dashboard load KPI
+      operationId: checkDashboardLoad
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KPI'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/kpi/checkHostedConnector:
+    get:
+      tags:
+      - KPI Management API
+      summary: Check HostedConnector KPI
+      operationId: checkHostedConnector
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KPI'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/kpi/checkMessageMQ:
+    get:
+      tags:
+      - KPI Management API
+      summary: Check MessageMQ KPI
+      operationId: checkMessageMQ
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KPI'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/kpi/checkMongoDB:
+    get:
+      tags:
+      - KPI Management API
+      summary: Check MongoDB KPI
+      operationId: checkMongoDB
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KPI'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/kpi/checkMongoReplicaSetStatus:
+    get:
+      tags:
+      - KPI Management API
+      summary: Check mongo replica set status KPI
+      operationId: checkMongoReplicaSetStatus
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KPI'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/kpi/checkMySQL:
+    get:
+      tags:
+      - KPI Management API
+      summary: Check MySQL KPI
+      operationId: checkMySQL
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KPI'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/kpi/checkQueryPreview:
+    get:
+      tags:
+      - KPI Management API
+      summary: Check query preview KPI
+      operationId: checkQueryPreview
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KPI'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/kpi/checkQuerySaveAndRunNow:
+    get:
+      tags:
+      - KPI Management API
+      summary: Check query save and run KPI
+      operationId: checkQuerySaveAndRunNow
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KPI'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/kpi/checkWidgetLoad:
+    get:
+      tags:
+      - KPI Management API
+      summary: Check widget load KPI
+      operationId: checkWidgetLoad
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KPI'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    KPIAll:
+      type: object
+      properties:
+        checkMySQL:
+          $ref: '#/components/schemas/KPI'
+        checkMongoDB:
+          $ref: '#/components/schemas/KPI'
+        checkMessageMQ:
+          $ref: '#/components/schemas/KPI'
+        checkHostedConnector:
+          $ref: '#/components/schemas/KPI'
+        checkQueryPreview:
+          $ref: '#/components/schemas/KPI'
+        checkQuerySaveAndRunNow:
+          $ref: '#/components/schemas/KPI'
+        checkDashboardLoad:
+          $ref: '#/components/schemas/KPI'
+        checkWidgetLoad:
+          $ref: '#/components/schemas/KPI'
+        checkMongoReplicaSetStatus:
+          $ref: '#/components/schemas/KPI'
+      description: All KPIs
+    ApiMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message
+          readOnly: true
+        documentation:
+          type: string
+          description: Link to documentation
+          readOnly: true
+      description: Response status
+    KPI:
+      type: object
+      properties:
+        name:
+          type: string
+          description: KPI name
+          readOnly: true
+        status:
+          type: string
+          description: KPI status
+          readOnly: true
+          example: GREEN, YELLOW, RED
+          enum:
+          - GREEN
+          - YELLOW
+          - RED
+        time:
+          type: integer
+          description: KPI execution time
+          format: int64
+          readOnly: true
+        comment:
+          type: string
+          description: KPI comment
+          readOnly: true
+      description: KPI information
+  securitySchemes:
+    Authorization:
+      type: http
+      in: header
+      scheme: bearer

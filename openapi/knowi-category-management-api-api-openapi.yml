@@ -1,0 +1,438 @@
+openapi: 3.2.0
+info:
+  title: User Management Category Management API
+  description: Manage users
+  version: '2.0'
+tags:
+- name: Category Management API
+  description: Manage categories
+paths:
+  /api/2.0/category/assets/add:
+    post:
+      tags:
+      - Category Management API
+      summary: Add asset to existing category
+      operationId: addAssetToCategory
+      requestBody:
+        description: Category asset request
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryAssetRequest'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/category:
+    get:
+      tags:
+      - Category Management API
+      summary: List accessible categories
+      operationId: listCategories
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CategoryTreeItem'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - Category Management API
+      summary: Create new category
+      operationId: createCategory
+      requestBody:
+        description: Category information to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryTreeItem'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryTreeItem'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/category/{objectId}:
+    get:
+      tags:
+      - Category Management API
+      summary: Retrieve a category with specific ID
+      operationId: viewCategory
+      parameters:
+      - name: objectId
+        in: path
+        description: Category ID to be retrieved
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryTreeItem'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+    put:
+      tags:
+      - Category Management API
+      summary: Update existing category with input information.
+      operationId: editCategory
+      parameters:
+      - name: objectId
+        in: path
+        description: Category ID to be updated
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Category information to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryTreeItem'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryTreeItem'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+    delete:
+      tags:
+      - Category Management API
+      summary: Delete existing category with given ID
+      operationId: deleteCategory
+      parameters:
+      - name: objectId
+        in: path
+        description: Category ID to be deleted
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/category/assets/remove:
+    post:
+      tags:
+      - Category Management API
+      summary: Remove asset from existing category
+      operationId: removeAssetFromCategory
+      requestBody:
+        description: Category asset request
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryAssetRequest'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/category/search:
+    get:
+      tags:
+      - Category Management API
+      summary: Search categories
+      operationId: searchUsers
+      parameters:
+      - name: name
+        in: query
+        description: Category name
+        schema:
+          type: string
+      - name: objectType
+        in: query
+        description: Category object type
+        schema:
+          type: integer
+          format: int32
+      - name: parentId
+        in: query
+        description: Category parent ID
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CategoryTreeItem'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '403':
+          description: User is not allowed to access this resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    CategoryTreeItem:
+      required:
+      - name
+      - objectType
+      - parentId
+      type: object
+      properties:
+        createdDate:
+          type: integer
+          description: Created date in milliseconds
+          format: int64
+          readOnly: true
+        lastModDate:
+          type: integer
+          description: Last modified date
+          format: int64
+          readOnly: true
+        id:
+          type: integer
+          description: Category ID
+          format: int64
+          readOnly: true
+        name:
+          type: string
+          description: Category name
+        parentId:
+          type: integer
+          description: Parent category ID
+          format: int64
+        objectType:
+          type: integer
+          description: Category object type
+          format: int32
+        userId:
+          type: integer
+          description: Category user ID
+          format: int64
+          readOnly: true
+        customerId:
+          type: integer
+          description: Category customer ID
+          format: int64
+          readOnly: true
+        accessLevel:
+          type: integer
+          description: Access level
+          format: int32
+          readOnly: true
+      description: Category information
+    ApiMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message
+          readOnly: true
+        documentation:
+          type: string
+          description: Link to documentation
+          readOnly: true
+      description: Response status
+    CategoryAssetRequest:
+      required:
+      - categoryId
+      - objectId
+      type: object
+      properties:
+        categoryId:
+          type: integer
+          description: Category ID to add asset to or remove asset from.
+          format: int64
+        objectId:
+          type: integer
+          description: Asset ID to add to category or remove from category.
+          format: int64
+  securitySchemes:
+    Authorization:
+      type: http
+      in: header
+      scheme: bearer

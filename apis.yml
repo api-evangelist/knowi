@@ -149,6 +149,114 @@ apis:
     url: https://www.knowi.com/docs/pushApi.html
   - type: APIDocumentation
     url: https://www.knowi.com/docs/pushApi.html
+- aid: knowi:knowi-action-management-api-api
+  name: Knowi Action Management API
+  description: Manage action API to be used in alert and report
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - Action Management API
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-action-management-api-api-openapi.yml
+- aid: knowi:knowi-alerts-api
+  name: Knowi Alerts API
+  description: The Alerts API from Knowi — 7 operation(s) for alerts.
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - Alerts
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-alerts-api-openapi.yml
+- aid: knowi:knowi-authentication-management-api-api
+  name: Knowi Authentication Management API
+  description: Authentication API to be authenticate to management API
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - Authentication Management API
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-authentication-management-api-api-openapi.yml
+- aid: knowi:knowi-category-management-api-api
+  name: Knowi Category Management API
+  description: Manage categories
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - Category Management API
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-category-management-api-api-openapi.yml
+- aid: knowi:knowi-datasource-management-api-api
+  name: Knowi Datasource Management API
+  description: Manage datasources
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - Datasource Management API
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-datasource-management-api-api-openapi.yml
+- aid: knowi:knowi-group-management-api-api
+  name: Knowi Group Management API
+  description: Manage user group
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - Group Management API
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-group-management-api-api-openapi.yml
+- aid: knowi:knowi-kpi-management-api-api
+  name: Knowi KPI Management API
+  description: Manage KPI
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - KPI Management API
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-kpi-management-api-api-openapi.yml
+- aid: knowi:knowi-natural-language-processing-management-api-api
+  name: Knowi Natural Language Processing Management API
+  description: Manage and access NLP functionalities
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - Natural Language Processing Management API
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-natural-language-processing-management-api-api-openapi.yml
+- aid: knowi:knowi-report-management-api-api
+  name: Knowi Report Management API
+  description: Manage reports
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - Report Management API
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-report-management-api-api-openapi.yml
+- aid: knowi:knowi-role-management-api-api
+  name: Knowi Role Management API
+  description: Manage roles
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - Role Management API
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-role-management-api-api-openapi.yml
+- aid: knowi:knowi-user-management-api-api
+  name: Knowi User Management API
+  description: Manage users
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - User Management API
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-user-management-api-api-openapi.yml
+- aid: knowi:knowi-data-sources-api
+  name: Knowi Data Sources API
+  description: The Data Sources API from Knowi — 1 operation(s) for data sources.
+  humanURL: https://www.knowi.com/docs/managementAPI.html
+  tags:
+  - Data Sources
+  properties:
+  - type: OpenAPI
+    url: openapi/knowi-data-sources-api-openapi.yml
 common:
   - type: Plans
     url: plans/knowi-plans-pricing.yml

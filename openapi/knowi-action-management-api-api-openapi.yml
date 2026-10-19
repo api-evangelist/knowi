@@ -1,0 +1,641 @@
+openapi: 3.2.0
+info:
+  title: User Management Action Management API
+  description: Manage users
+  version: '2.0'
+tags:
+- name: Action Management API
+  description: Manage action API to be used in alert and report
+paths:
+  /api/2.0/actions/slacks:
+    get:
+      tags:
+      - Action Management API
+      summary: List accessible Slack actions
+      operationId: listSlack
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AlertActionApi'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - Action Management API
+      summary: Create a new Slack action
+      operationId: createSlack
+      requestBody:
+        description: Slack action information to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlertActionApi'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertActionApi'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/actions/teams:
+    get:
+      tags:
+      - Action Management API
+      summary: List accessible Teams actions
+      operationId: listTeams
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AlertActionApi'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - Action Management API
+      summary: Create a new Teams action
+      operationId: createTeams
+      requestBody:
+        description: Teams action information to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlertActionApi'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertActionApi'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/actions/webhooks:
+    get:
+      tags:
+      - Action Management API
+      summary: List accessible Webhook actions
+      operationId: listWebhook
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WebhookActionApi'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - Action Management API
+      summary: Create a new Webhook action
+      operationId: createWebhook
+      requestBody:
+        description: Webhook action information to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookActionApi'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookActionApi'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/actions/slacks/{objectId}:
+    get:
+      tags:
+      - Action Management API
+      summary: Retrieve Slack action by ID
+      operationId: findSlack
+      parameters:
+      - name: objectId
+        in: path
+        description: Action ID to be retrieved
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertActionApi'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+    put:
+      tags:
+      - Action Management API
+      summary: Update existing Slack action
+      operationId: editSlack
+      parameters:
+      - name: objectId
+        in: path
+        description: Action ID to be updated
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Slack action information to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlertActionApi'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertActionApi'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/actions/teams/{objectId}:
+    get:
+      tags:
+      - Action Management API
+      summary: Retrieve Teams action by ID
+      operationId: findTeams
+      parameters:
+      - name: objectId
+        in: path
+        description: Action ID to be retrieved
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertActionApi'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+    put:
+      tags:
+      - Action Management API
+      summary: Update existing Teams action
+      operationId: editTeams
+      parameters:
+      - name: objectId
+        in: path
+        description: Action ID to be updated
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Teams action information to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlertActionApi'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertActionApi'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+  /api/2.0/actions/webhooks/{objectId}:
+    get:
+      tags:
+      - Action Management API
+      summary: Retrieve Webhook action by ID
+      operationId: findWebhook
+      parameters:
+      - name: objectId
+        in: path
+        description: Action ID to be retrieved
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookActionApi'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+    put:
+      tags:
+      - Action Management API
+      summary: Update existing Webhook action
+      operationId: editWebhook
+      parameters:
+      - name: objectId
+        in: path
+        description: Action ID to be updated
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Webhook action information to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookActionApi'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookActionApi'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '401':
+          description: User is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+        '500':
+          description: Error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiMessage'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    AlertActionApi:
+      required:
+      - name
+      type: object
+      properties:
+        createdDate:
+          type: integer
+          description: Created date in milliseconds
+          format: int64
+          readOnly: true
+        lastModDate:
+          type: integer
+          description: Last modified date
+          format: int64
+          readOnly: true
+        id:
+          type: integer
+          description: Action ID
+          format: int64
+          readOnly: true
+        userId:
+          type: integer
+          description: Action owner's user ID
+          format: int64
+          readOnly: true
+        actionType:
+          type: string
+          description: Action type
+          readOnly: true
+          example: SLACK, TEAMS, WEBHOOK
+        name:
+          type: string
+          description: Action name
+        channels:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertChannel'
+        message:
+          type: string
+          description: Action message
+        eachRowOfDataAsMessage:
+          type: boolean
+          description: Whether or not to send a separate message for each row of the data
+        botAccessToken:
+          type: string
+          description: Service access token
+        teamId:
+          type: string
+          description: Service team ID
+        teamName:
+          type: string
+          description: Service team Name used for display purpose
+        botClientId:
+          type: integer
+          description: Service client ID
+          format: int64
+        channel:
+          $ref: '#/components/schemas/AlertChannel'
+      description: Action API for messaging platform such as Teams and Slack
+    WebhookActionApi:
+      type: object
+      properties:
+        createdDate:
+          type: integer
+          description: Created date in milliseconds
+          format: int64
+          readOnly: true
+        lastModDate:
+          type: integer
+          description: Last modified date
+          format: int64
+          readOnly: true
+        id:
+          type: integer
+          description: Action ID
+          format: int64
+          readOnly: true
+        userId:
+          type: integer
+          description: Action owner's user ID
+          format: int64
+          readOnly: true
+        actionType:
+          type: string
+          description: Action type
+          readOnly: true
+          example: SLACK, TEAMS, WEBHOOK
+        dataFormat:
+          type: string
+          description: Webhook data format
+          enum:
+          - attachment
+          - json
+        url:
+          type: string
+          description: Webhook request URL
+        authUrl:
+          type: string
+          description: Webhook authentication URL
+        authHeaders:
+          type: string
+          description: Webhook authentication headers
+        webhookHeaders:
+          type: string
+          description: Webhook request headers
+        customPostBody:
+          type: string
+          description: Webhook request post body
+        name:
+          type: string
+          description: Webhook action name
+      description: Action API for Webhook
+    AlertChannel:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+          description: Channel ID
+        name:
+          type: string
+          description: Channel name
+        privateChannel:
+          type: boolean
+          description: Whether or not this channel is private
+      description: Action API channel
+    ApiMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message
+          readOnly: true
+        documentation:
+          type: string
+          description: Link to documentation
+          readOnly: true
+      description: Response status
+  securitySchemes:
+    Authorization:
+      type: http
+      in: header
+      scheme: bearer
