@@ -1,4 +1,4 @@
-# Knowi (knowi)
+# Knowi
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,84 +66,129 @@
 
 Knowi is an analytics and business intelligence platform with native integration to NoSQL, SQL, and REST API data sources, providing AI-powered analytics, embedded dashboards, and natural language querying.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/knowi/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/knowi/refs/heads/main/apis.yml)
+**Areas:** AI Analytics · API Analytics · Business Intelligence · Data Visualization · Embedded Analytics · NoSQL Analytics
 
-## Scope
+## Knowi on APIs.io
 
-- **Type:** Index
+Everything profiled for Knowi is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/knowi/](https://apis.io/providers/knowi/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- AI Analytics
-- API Analytics
-- Business Intelligence
-- Data Visualization
-- Embedded Analytics
-- NoSQL Analytics
+- [Knowi Authentication API](https://apis.io/apis/knowi/knowi-authentication-api/) — Obtain and revoke bearer tokens.
+- [Knowi Dashboards API](https://apis.io/apis/knowi/knowi-dashboards-api/) — Manage dashboards and shared URLs.
+- [Knowi Groups API](https://apis.io/apis/knowi/knowi-groups-api/) — Manage user groups.
+- [Knowi Pull API](https://apis.io/apis/knowi/knowi-pull-api/) — Retrieve dataset contents.
+- [Knowi Push API](https://apis.io/apis/knowi/knowi-push-api/) — Send data to Knowi datasets in real time.
+- [Knowi Users API](https://apis.io/apis/knowi/knowi-users-api/) — Manage workspace users.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-26
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Knowi Management API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Knowi Management API enables programmatic administration of users, groups, and dashboards in a Knowi workspace using OAuth 2.0 bearer tokens. It supports automation of provisioning, permissions, and embedded dashboard sharing.
+- [Knowi Agentic Access](https://apis.io/agentic-access/knowi/knowi-agentic-access/)
 
-- **Human URL:** [https://www.knowi.com/docs/managementAPI.html](https://www.knowi.com/docs/managementAPI.html)
+#### Collections (8)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Administration
-- Business Intelligence
-- Dashboards
-- Embedded Analytics
+- [Knowi Management Authentication API](https://apis.io/collections/knowi/open-knowi-authentication-api/)
+- [Knowi Management Authentication Dashboards API](https://apis.io/collections/knowi/open-knowi-dashboards-api/)
+- [Knowi Management Authentication Groups API](https://apis.io/collections/knowi/open-knowi-groups-api/)
+- [Knowi Management API](https://apis.io/collections/knowi/open-knowi-management-api/)
+- [Knowi Management Authentication Pull API](https://apis.io/collections/knowi/open-knowi-pull-api/)
+- [Knowi Management Authentication Push API](https://apis.io/collections/knowi/open-knowi-push-api/)
+- [Knowi Push Data API](https://apis.io/collections/knowi/open-knowi-push-data-api/)
+- [Knowi Management Authentication Users API](https://apis.io/collections/knowi/open-knowi-users-api/)
 
-#### Properties
+#### Security (3)
 
-- [Documentation](https://www.knowi.com/docs/managementAPI.html)
-- [A P I Documentation](https://www.knowi.com/docs/managementAPI.html)
-- [OpenAPI](openapi/knowi-management-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/knowi-management-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/knowi-management-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### Knowi Push Data API
+- [Knowi Authentication](https://apis.io/security/knowi/knowi-authentication/)
+- [Knowi Domain Security](https://apis.io/security/knowi/knowi-domain-security/)
+- [Knowi Trust Center](https://apis.io/security/knowi/knowi-trust-center/)
 
-The Knowi Push Data API enables real-time data ingestion to and pull retrieval from Knowi datasets. Push data over HTTP to create or update datasets on the fly, and query results back with SQL-like filters and multiple export formats.
+#### Plans and pricing (1)
 
-- **Human URL:** [https://www.knowi.com/docs/pushApi.html](https://www.knowi.com/docs/pushApi.html)
+Published plans, tiers and prices.
 
-#### Tags
+- [Knowi Plans Pricing](https://apis.io/plans/knowi/knowi-plans-pricing/)
 
-- Data Ingestion
-- Real-Time
-- Streaming
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Documentation](https://www.knowi.com/docs/pushApi.html)
-- [A P I Documentation](https://www.knowi.com/docs/pushApi.html)
-- [OpenAPI](openapi/knowi-push-data-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/knowi-push-data-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/knowi-push-data-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Knowi Rate Limits](https://apis.io/rate-limits/knowi/knowi-rate-limits/)
 
-## Common Properties
+#### FinOps (1)
 
-- [LinkedIn](https://www.linkedin.com/company/cloud9-charts)
+What the API costs to run, by operation.
+
+- [Knowi Finops](https://apis.io/finops/knowi/knowi-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.knowi.com)
 - [Documentation](https://www.knowi.com/docs)
-- [Blog](https://www.knowi.com/blog)
-- [Blog R S S](https://www.knowi.com/blog/feed/)
 - [Pricing](https://www.knowi.com/pricing)
-- [Login](https://www.knowi.com/login)
-- [Sign Up](https://www.knowi.com/signup)
 - [Support](https://www.knowi.com/support)
-- [Integrations](https://www.knowi.com/integrations)
-- [L L Ms Txt](https://knowi.com/llms.txt)
+- [Blog](https://www.knowi.com/blog)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 28.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 52.4 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 22.4 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/knowi/](https://apis.io/providers/knowi/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Knowi: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/knowi/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
